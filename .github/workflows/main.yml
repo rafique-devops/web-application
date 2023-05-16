@@ -12,3 +12,18 @@ jobs:
     steps:
       - name: Step 1
         run: echo "Hello World"
+        
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Build Docker Image
+        run: docker build -t thedevops91/web-application:latest .
+        
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with: 
+          username: ${{secrets.MYUSERNAME}}
+          password: ${{secrets.MY_DOCKER_TOKEN}}
+          
+      - name: Push Docker Image to Docker Hub
+        run:  docker push thedevops91/web-application:latest

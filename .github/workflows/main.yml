@@ -1,0 +1,38 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    container:
+      image: node:16
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: false
+
+      - name: Log in to Docker Hub
+        id: login
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.thedevops91 }}
+          password: ${{ secrets.dckr_pat_d7MSbsZNyx6MMIIpWkYzLNVSka4 }}
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push thedevops91/projects_fusionkatta:latest
+          echo "::save-state name=image_tag::latest"
+
+      - name: Set output
+        id: output
+        run: echo "The Docker image tag is ${{ steps.login.outputs.image_tag }}"

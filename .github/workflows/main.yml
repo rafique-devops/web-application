@@ -12,11 +12,11 @@ jobs:
       image: node:16
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
       - name: Build Docker image
-        run: docker build -t thedevops91/web-application:latest .
+        run:  docker build -t thedevops91/web-application:latest .
         
       - name: Push Docker image to Docker Hub
         run: |

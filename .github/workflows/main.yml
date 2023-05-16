@@ -20,5 +20,5 @@ jobs:
         
       - name: Push Docker image to Docker Hub
         run: |
-          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+          echo "${{ secrets.MY_DOCKER_TOKEN }}" | docker login --username "${{ secrets.MY_USERNAME }}" --password-stdin
           docker push thedevops91/web-application:latest

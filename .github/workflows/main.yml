@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: nginx-latest
+    runs-on: nginx:latest
     container:
       image: node:16
 

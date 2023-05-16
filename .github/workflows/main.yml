@@ -6,19 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-push:
-    runs-on: nginx:latest
-    container:
-      image: node:16
-
+  my-job:
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Build Docker image
-        run:  docker build -t thedevops91/web-application:latest .
-        
-      - name: Push Docker image to Docker Hub
-        run: |
-          echo "${{ secrets.MY_DOCKER_TOKEN }}" | docker login --username "${{ secrets.MY_USERNAME }}" --password-stdin
-          docker push thedevops91/web-application:latest
+      - name: Step 1
+        run: echo "Hello World"

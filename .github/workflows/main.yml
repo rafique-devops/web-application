@@ -28,7 +28,7 @@ jobs:
           
       - name: Wait for Minikube To Be Ready
         run:  |
-          minikube status --wait=all --timeout=5m
+          minikube status
         
       - name: Build Docker Image
         run: docker build -t thedevops91/web-application:latest .

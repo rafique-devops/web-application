@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Image & Deploy To Minikube
 
 on:
   push:
@@ -16,6 +16,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         
+      - name: Set Up Minikube
+        uses: hashicorp/setup-minikube@v1
+        
+      - name: Start Minikube
+        run:  minikube start
+        
       - name: Build Docker Image
         run: docker build -t thedevops91/web-application:latest .
         
@@ -27,3 +33,15 @@ jobs:
           
       - name: Push Docker Image to Docker Hub
         run:  docker push thedevops91/web-application:latest
+        
+      - name: Load Docker Image Into Minikube
+        run:  minikube image load thedevops91/web-application:latest
+        
+      - name: Deploye Application on Minikube
+        run:  kubectl apply -f - deploy/deployment.yaml
+      
+      - name: Expose Services
+        run:  kubectl expose deployment web-application --type=NodePort --port=80
+        
+      - name: Print Minikube IP
+        run: minikube ip

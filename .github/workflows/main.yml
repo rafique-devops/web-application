@@ -16,11 +16,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         
-      - name: Set Up Minikube
-        uses: hashicorp/setup-minikube@v2
+      - name: Install Minikube
+        run:  |
+          curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+          chmod +x minikube
+          sudo mv minikube /usr/local/bin/
         
       - name: Start Minikube
-        run:  minikube start
+        run:  |
+          minikube start --kubernetes-version=v1.22.0 --nodes=1
+          
+      - name: Wait for Minikube To Be Ready
+        run:  |
+          minikube status --wait=all --timeout=5m
         
       - name: Build Docker Image
         run: docker build -t thedevops91/web-application:latest .

@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Set Up Minikube
-        uses: hashicorp/setup-minikube@v1
+        uses: hashicorp/setup-minikube@v2
         
       - name: Start Minikube
         run:  minikube start

@@ -1,11 +1,11 @@
-# Use an official nginx image as the parent image
+# Use an official Nginx image as the base image
 FROM nginx:latest
 
-# Set the working directory to /app
-WORKDIR /app
+# Copy the HTML files to the appropriate location in the container
+COPY index.html /usr/share/nginx/html/
 
-# Copy the application code to the container
-COPY . /usr/share/nginx/html
+# Expose port 80 for the web server
+EXPOSE 8000
 
-# Expose port 80
-EXPOSE 80
+# Start the Nginx server when the container is launched
+CMD ["nginx", "-g", "daemon off;"]

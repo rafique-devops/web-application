@@ -16,4 +16,4 @@ spec:
         - name: web-application
           image: thedevops91/web-application:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8000

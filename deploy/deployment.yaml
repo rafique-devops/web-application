@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-application
+  template:
+    metadata:
+      labels:
+        app: web-application
+    spec:
+      containers:
+        - name: my-app
+          image: thedevops91/web-application:latest
+          ports:
+            - containerPort: 8080

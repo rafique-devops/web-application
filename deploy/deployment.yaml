@@ -13,7 +13,7 @@ spec:
         app: web-application
     spec:
       containers:
-        - name: my-app
+        - name: web-application
           image: thedevops91/web-application:latest
           ports:
             - containerPort: 8080

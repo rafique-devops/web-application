@@ -47,8 +47,8 @@ jobs:
         
       - name: Deploy Application on Minikube
         run:  |
-          kubectl apply -f - deploy/deployment.yaml
-          kubectl apply -f - deploy/service.yml
+          kubectl apply -f deploy/deployment.yaml
+          kubectl apply -f deploy/service.yml
       
       - name: Expose Services
         run:  kubectl expose deployment web-application --type=NodePort --port=80

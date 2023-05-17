@@ -37,8 +37,10 @@ jobs:
       - name: Load Docker Image Into Minikube
         run:  minikube image load thedevops91/web-application:latest
         
-      - name: Deploye Application on Minikube
-        run:  kubectl apply -f - deploy/deployment.yaml
+      - name: Deploy Application on Minikube
+        run:  |
+          kubectl apply -f - deploy/deployment.yaml
+          kubectl apply -f - deploy/service.yml
       
       - name: Expose Services
         run:  kubectl expose deployment web-application --type=NodePort --port=80

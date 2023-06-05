@@ -1,0 +1,208 @@
+/* Color variables for the page */
+:root {
+    --font: rgb(212, 215, 218);
+    --background: wheat;
+    --menuColor: slategrey;
+  }
+  
+  body {
+    width: auto;
+    background-image: url('https://images.unsplash.com/photo-1606625736768-f521ab7e23fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=jeswin-thomas-PtfRiBumfQU-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-color: rgb(127, 109, 72);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  h1 {
+    color: var(--font);
+  }
+  
+  p {
+    color: var(--font);
+  }
+  
+  /* Nav bar styling */
+  .navBar {
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.541);
+  }
+  
+  .navBar a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  img {
+    margin: 10px;
+  }
+  
+  i {
+    font-size: 20px;
+  }
+  
+  i:hover,
+  a:hover {
+    color: dodgerblue;
+    cursor: pointer;
+  }
+  
+  .navBar nav li {
+    padding: 10px;
+    margin: 20px;
+    list-style-type: none;
+    display: inline-block;
+  }
+  
+  #hamMenu {
+    visibility: hidden;
+  }
+  
+  /* Grid system for the webpage */
+  .header {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  
+  .header>div {
+    margin-top: 10%;
+    max-width: 100%;
+  }
+  
+  .IntroMsg {
+    margin: 20px;
+    position: relative;
+    width: 100%;
+    left: 5%;
+    top: -20%;
+    text-align: center;
+    padding: 10px;
+    height: auto;
+    opacity: 0.9;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+  
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* For image separation */
+  .story {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .imgContainer {
+    width: 90%;
+    height: fit-content;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    color: white;
+  }
+  
+  .imgContainer>div {
+    margin: 10px;
+  }
+  
+  .menuIntro>img {
+    width: 75%;
+    border-radius: 10%;
+    height: auto;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    filter: blur(0.5px);
+  }
+  
+  .menuIntro {
+    text-align: center;
+    color: rgb(39, 39, 39);
+    border-radius: 10px;
+  }
+  
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    width: 80%;
+    height: auto;
+    top: -10%;
+    left: 5%;
+  }
+  
+  .menu .menuColumn {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .menu img {
+    width: 60%;
+    border-radius: 10%;
+    height: auto;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    filter: blur(0.5px);
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    padding: 10px;
+  }
+  
+  .menu ul li a {
+    color: var(--font);
+  }
+  
+  .menu ul li a:hover {
+    color: dodgerblue;
+  }
+  
+  /* Media queries for responsiveness */
+  @media screen and (max-width: 800px) {
+    .header {
+      width: 95%;
+      left: 2.5%;
+      top: 5%;
+    }
+  
+    .menu {
+      grid-template-columns: 1fr;
+    }
+  
+    .imgContainer {
+      grid-template-rows: auto;
+    }
+  
+    .menuIntro,
+    .menu {
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+  
+    .menuIntro>img,
+    .menu img {
+      width: 90%;
+    }
+  }
+  
